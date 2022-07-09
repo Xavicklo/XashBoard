@@ -21,6 +21,7 @@ class SparkLine extends React.PureComponent {
         xName="x"
         yName="yval"
         type={type}
+        markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
         tooltipSettings={{
           visible: true,
           format: "${x} : data ${yval}",
