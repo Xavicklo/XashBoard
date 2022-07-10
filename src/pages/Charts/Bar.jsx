@@ -31,8 +31,12 @@ const Bar = () => {
         primaryYAxis={barPrimaryYAxis}
         chartArea={{ border: { width: 0 } }}
         tootip={{ enable: true }}
+        palettes={["#FFD700", "#C0C0C0", "#CD7F32"]}
         background={currentMode === "dark" ? "#33373E" : "#fff"}
-        legendSettings={{ background: "white" }}
+        legendSettings={{
+          background: currentMode === "dark" ? "#33373E" : "#fff",
+          textStyle: { color: currentMode === "dark" ? "#edf2f7" : "#000" },
+        }}
       >
         <Inject
           services={[ColumnSeries, Category, Legend, Tooltip, DataLabel]}
