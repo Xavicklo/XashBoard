@@ -12,23 +12,23 @@ import { useStateContext } from "../contexts/ContextProvider";
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
   return (
-    <div className="mt-6">
+    <div className="mt-2">
       <div className="flex flex-wrap w-full justify-center">
         <div
           className="bg-white 
           dark:text-gray-200 
           dark:bg-secondary-dark-bg h-44 rounded-xl w-full 
-          lg:w-80 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center"
+          lg:w-80 p-8 pt-5 m-3 bg-no-repeat bg-cover bg-center"
         >
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold" style={{ color: currentColor }}>
                 Earnings
               </p>
-              <p className="text-2xl">$1,158,500.28</p>
+              <p className="text-2xl">$125,443.00</p>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-10">
             <Button
               color="white"
               bgColor={currentColor}
@@ -95,7 +95,7 @@ const Ecommerce = () => {
             <div className="border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">$53,921</span>
+                  <span className="text-3xl font-semibold">$125,443</span>
                   <span
                     className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white ml-3 text-xs"
                     style={{ backgroundColor: currentColor }}
@@ -103,14 +103,14 @@ const Ecommerce = () => {
                     36%
                   </span>
                 </p>
-                <p className="text-gray-500 dark:text-gray-200 mt-1">Budget</p>
+                <p className="text-gray-500 dark:text-gray-500 mt-1">Budget</p>
               </div>
 
               <div className="mt-8">
                 <p>
-                  <span className="text-3xl font-semibold">$13,287</span>
+                  <span className="text-3xl font-semibold">$33,287</span>
                 </p>
-                <p className="text-gray-500  dark:text-gray-200 mt-1">
+                <p className="text-gray-500  dark:text-gray-500 mt-1">
                   Expense
                 </p>
               </div>
