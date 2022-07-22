@@ -23,8 +23,8 @@ const LineChart = () => {
 
   const options = {
     method: "GET",
-    url: "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/price",
-    params: { referenceCurrencyUuid: "yhjMzLPhuIDl" },
+    url: "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history",
+    params: { referenceCurrencyUuid: "yhjMzLPhuIDl", timePeriod: "24h" },
     headers: {
       "X-RapidAPI-Key": "b84f9468c9msh7c9d8455324af1ep1c537djsn9173cfde44cd",
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
