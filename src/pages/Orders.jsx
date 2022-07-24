@@ -34,7 +34,7 @@ const Orders = () => {
         allowPdfExport
         contextMenuItems={contextMenuItems}
         editSettings={editing}
-        backgroundColor="#33373E"
+        style={{ backgroundColor: "#33373E" }}
       >
         <ColumnsDirective backgroundColor="#33373E">
           {ordersGrid.map((item, index) => (
