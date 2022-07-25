@@ -471,6 +471,7 @@ export const employeesGrid = [
     headerText: "Employee",
     width: "150",
     template: gridEmployeeProfile,
+    background: "#33373E",
     textAlign: "Center",
   },
   { field: "Name", headerText: "", width: "0", textAlign: "Center" },
