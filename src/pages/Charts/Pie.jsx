@@ -17,6 +17,10 @@ const Pie = () => {
           legendVisiblity
           background={currentMode === "dark" ? "#33373E" : "#fff"}
           height="full"
+          legendSettings={{
+            background: currentMode === "dark" ? "#33373E" : "#fff",
+            textStyle: { color: currentMode === "dark" ? "#edf2f7" : "#000" },
+          }}
         />
       </div>
     </div>

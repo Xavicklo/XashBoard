@@ -37,11 +37,11 @@ const Ecommerce = () => {
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="text-2xl">$ 63,448.78</p>
             </div>
             <button
               type="button"
@@ -74,7 +74,12 @@ const Ecommerce = () => {
                 {item.icon}
               </button>
               <p className="mt-3">
-                <span className="text-lg font-semibold">{item.amount}</span>
+                <span
+                  className="text-lg font-semibold"
+                  style={{ color: currentColor }}
+                >
+                  {item.amount}
+                </span>
                 <span className={`text-sm text-${item.pcColor} ml-2`}>
                   {item.percentage}
                 </span>
@@ -88,15 +93,20 @@ const Ecommerce = () => {
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
-            <p className="font-semibold text-xl">Revenue Updates</p>
+            <p className="font-semibold text-xl text-gray-600 dark:text-gray-200">
+              Revenue Updates
+            </p>
             <div className="flex items-center gap-4">
-              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+              <p className="flex items-center gap-2 text-gray-600 dark:text-gray-200 hover:drop-shadow-xl">
                 <span>
                   <GoPrimitiveDot />
                 </span>
                 <span>Expense</span>
               </p>
-              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
+              <p
+                className="flex items-center gap-2 hover:drop-shadow-xl"
+                style={{ color: currentColor }}
+              >
                 <span>
                   <GoPrimitiveDot />
                 </span>
@@ -108,15 +118,34 @@ const Ecommerce = () => {
             <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">$93,438</span>
-                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
-                    23%
+                  <span className="text-3xl font-semibold text-gray-600 dark:text-gray-200">
+                    $ 93,438.00
+                  </span>
+                  <span
+                    className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full ml-3 text-xs"
+                    style={{
+                      backgroundColor: currentColor,
+                      color: "white",
+                    }}
+                  >
+                    +4%
                   </span>
                 </p>
                 <p className="text-gray-500 mt-1">Budget</p>
               </div>
               <div className="mt-8">
-                <p className="text-3xl font-semibold">$48,487</p>
+                <span className="text-3xl font-semibold text-gray-600 dark:text-gray-200">
+                  $ 48,487.00
+                </span>
+                <span
+                  className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full ml-3 text-xs"
+                  style={{
+                    backgroundColor: currentColor,
+                    color: "white",
+                  }}
+                >
+                  -2%
+                </span>
 
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
@@ -156,7 +185,7 @@ const Ecommerce = () => {
 
               <div>
                 <p className="text-2xl text-white font-semibold mt-8">
-                  $63,448.78
+                  $ 63,448.78
                 </p>
                 <p className="text-gray-200">Monthly revenue</p>
               </div>
@@ -177,8 +206,10 @@ const Ecommerce = () => {
 
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
-              <p className="text-2xl font-semibold ">$43,246</p>
-              <p className="text-gray-400">Yearly sales</p>
+              <p className="text-2xl font-semibold ">$ 43,246.00</p>
+              <p className="text-gray-600 dark:text-gray-200">
+                Product Cost Breakdown
+              </p>
             </div>
 
             <div className="w-40">
