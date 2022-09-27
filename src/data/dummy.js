@@ -79,7 +79,7 @@ export const kanbanGrid = [
   { headerText: "Done", keyField: "Close", allowToggle: true },
 ];
 const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2 bg-white dark:bg-secondary-dark-bg">
+  <div className="flex items-center gap-2 bg-white">
     <img
       className="rounded-full w-10 h-10 "
       src={props.EmployeeImage}
@@ -90,7 +90,7 @@ const gridEmployeeProfile = (props) => (
 );
 
 const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2 bg-white dark:bg-secondary-dark-bg">
+  <div className="flex items-center justify-center gap-2 bg-white">
     <GrLocation />
     <span>{props.Country}</span>
   </div>
@@ -471,7 +471,7 @@ export const employeesGrid = [
     headerText: "Employee",
     width: "150",
     template: gridEmployeeProfile,
-    background: "#33373E",
+    backgroundColor: "#f5f5f5",
     textAlign: "Center",
   },
   { field: "Name", headerText: "", width: "0", textAlign: "Center" },

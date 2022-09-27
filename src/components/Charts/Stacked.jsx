@@ -27,7 +27,7 @@ const Stacked = ({ width, height }) => {
       primaryYAxis={stackedPrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
-      palettes={[currentColor, currentMode === "dark" ? "#edf2f7" : "#c9cfd7"]}
+      palettes={[currentColor, currentMode === "dark" ? "#edf2f7" : "#0d0f12"]}
       background={currentMode === "dark" ? "#33373E" : "#fff"}
       legendSettings={{
         background: currentMode === "dark" ? "#33373E" : "#fff",
