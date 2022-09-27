@@ -128,7 +128,7 @@ const Ecommerce = () => {
                       color: "white",
                     }}
                   >
-                    +4%
+                    +4.39%
                   </span>
                 </p>
                 <p className="text-gray-500 mt-1">Budget</p>
@@ -144,7 +144,7 @@ const Ecommerce = () => {
                     color: "white",
                   }}
                 >
-                  -2%
+                  -2.82%
                 </span>
 
                 <p className="text-gray-500 mt-1">Expense</p>
@@ -206,9 +206,10 @@ const Ecommerce = () => {
 
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
-              <p className="text-2xl font-semibold ">$ 43,246.00</p>
+              <p className="text-2xl font-semibold">$ 43,246.00</p>
               <p className="text-gray-600 dark:text-gray-200">
-                Product Cost Breakdown
+                {" "}
+                Product Costs{" "}
               </p>
             </div>
 

@@ -17,7 +17,7 @@ const Chat = () => {
             type="button"
             className="text-white  text-xs rounded p-1 px-2 bg-orange"
           >
-            5 New
+            5 New Messages
           </button>
         </div>
         <Button

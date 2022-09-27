@@ -669,7 +669,7 @@ export const earningData = [
   {
     icon: <FiBarChart />,
     amount: "423,39.00",
-    percentage: "+38.077%",
+    percentage: "+38.07%",
     title: "Sales",
     iconColor: "rgb(228, 106, 118)",
     iconBg: "rgb(255, 244, 229)",
@@ -679,7 +679,7 @@ export const earningData = [
   {
     icon: <HiOutlineRefresh />,
     amount: "39,354.00",
-    percentage: "-12.842%",
+    percentage: "-12.82%",
     title: "Refunds",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
