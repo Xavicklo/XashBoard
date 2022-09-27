@@ -650,40 +650,40 @@ export const chatData = [
 export const earningData = [
   {
     icon: <MdOutlineSupervisorAccount />,
-    amount: "39,354",
-    percentage: "-4%",
+    amount: "39,354.00",
+    percentage: "-4.39%",
     title: "Customers",
     iconColor: "#03C9D7",
     iconBg: "#E5FAFB",
-    pcColor: "text-red-600",
+    pcColor: "#DC2638",
   },
   {
     icon: <BsBoxSeam />,
-    amount: "4,396",
-    percentage: "+23%",
+    amount: "4,396.00",
+    percentage: "+23.14%",
     title: "Products",
     iconColor: "rgb(255, 244, 229)",
     iconBg: "rgb(254, 201, 15)",
-    pcColor: "text-green-600",
+    pcColor: "#16a34a",
   },
   {
     icon: <FiBarChart />,
-    amount: "423,39",
-    percentage: "+38%",
+    amount: "423,39.00",
+    percentage: "+38.077%",
     title: "Sales",
     iconColor: "rgb(228, 106, 118)",
     iconBg: "rgb(255, 244, 229)",
 
-    pcColor: "text-green-600",
+    pcColor: "#16a34a",
   },
   {
     icon: <HiOutlineRefresh />,
-    amount: "39,354",
-    percentage: "-12%",
+    amount: "39,354.00",
+    percentage: "-12.842%",
     title: "Refunds",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
-    pcColor: "text-red-600",
+    pcColor: "#DC2638",
   },
 ];
 
@@ -3002,13 +3002,14 @@ export const lineCustomSeries = [
 ];
 
 export const pieChartData = [
-  { x: "Labour", y: 18, text: "18%" },
-  { x: "Legal", y: 8, text: "8%" },
+  { x: "Labour", y: 30, text: "30%" },
+  { x: "Legal", y: 17, text: "17%" },
   { x: "Production", y: 15, text: "15%" },
-  { x: "License", y: 11, text: "11%" },
-  { x: "Facilities", y: 18, text: "18%" },
-  { x: "Taxes", y: 14, text: "14%" },
-  { x: "Insurance", y: 16, text: "16%" },
+  { x: "License", y: 13, text: "13%" },
+  { x: "Facilities", y: 10, text: "10%" },
+  { x: "Taxes", y: 6, text: "6%" },
+  { x: "Insurance", y: 5, text: "5%" },
+  { x: "Others", y: 4, text: "4%" },
 ];
 
 export const contextMenuItems = [
@@ -3031,10 +3032,14 @@ export const contextMenuItems = [
 ];
 
 export const ecomPieChartData = [
-  { x: "2018", y: 18, text: "35%" },
-  { x: "2019", y: 18, text: "15%" },
-  { x: "2020", y: 18, text: "25%" },
-  { x: "2021", y: 18, text: "25%" },
+  { x: "Labour", y: 30, text: "30%" },
+  { x: "Legal", y: 17, text: "17%" },
+  { x: "Production", y: 15, text: "15%" },
+  { x: "License", y: 13, text: "13%" },
+  { x: "Facilities", y: 10, text: "10%" },
+  { x: "Taxes", y: 6, text: "6%" },
+  { x: "Insurance", y: 5, text: "5%" },
+  { x: "Others", y: 4, text: "4%" },
 ];
 
 export const stackedChartData = [
