@@ -41,20 +41,21 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           dataSource={data}
           xName="x"
           yName="y"
-          innerRadius="35%"
+          innerRadius="55%"
           startAngle={0}
           endAngle={360}
-          radius="90%"
-          explode
-          explodeOffset="10%"
-          explodeIndex={3}
+          radius="100%"
+          explode={true}
+          explodeOffset="20%"
+          explodeIndex={4}
           palettes={[
-            "#BB1212",
-            "#C3C3C3",
-            "#00491D",
-            "#067A0B",
-            "#42016A",
-            "#C89606",
+            "#8D13A2",
+            "#BF0B8F",
+            "#FF0077",
+            "#F5013A",
+            "#EC0202",
+            "#F63201",
+            "#FF5E00",
           ]}
           dataLabel={{
             visible: true,

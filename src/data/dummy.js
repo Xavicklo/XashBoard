@@ -3098,14 +3098,13 @@ export const lineCustomSeries = [
 ];
 
 export const pieChartData = [
-  { x: "Labour", y: 30, text: "30%" },
+  { x: "Labour", y: 34, text: "34%" },
   { x: "Legal", y: 17, text: "17%" },
   { x: "Production", y: 15, text: "15%" },
   { x: "License", y: 13, text: "13%" },
   { x: "Facilities", y: 10, text: "10%" },
   { x: "Taxes", y: 6, text: "6%" },
   { x: "Insurance", y: 5, text: "5%" },
-  { x: "Others", y: 4, text: "4%" },
 ];
 
 export const contextMenuItems = [
@@ -3128,14 +3127,13 @@ export const contextMenuItems = [
 ];
 
 export const ecomPieChartData = [
-  { x: "Labour", y: 30, text: "30%" },
+  { x: "Labour", y: 34, text: "34%" },
   { x: "Legal", y: 17, text: "17%" },
   { x: "Production", y: 15, text: "15%" },
   { x: "License", y: 13, text: "13%" },
   { x: "Facilities", y: 10, text: "10%" },
   { x: "Taxes", y: 6, text: "6%" },
   { x: "Insurance", y: 5, text: "5%" },
-  { x: "Others", y: 4, text: "4%" },
 ];
 
 export const stackedChartData = [
