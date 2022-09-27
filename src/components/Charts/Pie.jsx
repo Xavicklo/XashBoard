@@ -48,6 +48,14 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           explode
           explodeOffset="10%"
           explodeIndex={3}
+          palettes={[
+            "#BB1212",
+            "#C3C3C3",
+            "#00491D",
+            "#067A0B",
+            "#42016A",
+            "#C89606",
+          ]}
           dataLabel={{
             visible: true,
             name: "text",
