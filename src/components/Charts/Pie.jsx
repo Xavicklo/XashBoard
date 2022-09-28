@@ -41,13 +41,14 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           dataSource={data}
           xName="x"
           yName="y"
-          innerRadius="55%"
+          innerRadius="45%"
           startAngle={0}
-          endAngle={360}
+          endAngle={330}
           radius="100%"
           explode={true}
-          explodeOffset="20%"
-          explodeIndex={4}
+          explodeOffset="10%"
+          explodeIndex={3}
+          opacity={0.5}
           palettes={[
             "#8D13A2",
             "#BF0B8F",

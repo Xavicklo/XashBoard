@@ -15,7 +15,7 @@ import {
   ecomPieChartData,
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import product9 from "../data/product9.jpg";
+import news from "../data/news.png";
 
 const DropDown = ({ currentMode }) => (
   <div className="bg-white dark:text-gray-200 w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -41,7 +41,7 @@ const Ecommerce = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-800">Earnings</p>
-              <p className="text-2xl text-gray-600">$ 63,448.78</p>
+              <p className="text-2xl text-gray-600">$ 63,500.00</p>
             </div>
             <button
               type="button"
@@ -119,7 +119,7 @@ const Ecommerce = () => {
               <div>
                 <p>
                   <span className="text-3xl font-semibold text-gray-600 dark:text-gray-200">
-                    $ 93,438.00
+                    $ 374,550.00
                   </span>
                   <span
                     className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full ml-3 text-xs"
@@ -135,7 +135,7 @@ const Ecommerce = () => {
               </div>
               <div className="mt-8">
                 <span className="text-3xl font-semibold text-gray-600 dark:text-gray-200">
-                  $ 48,487.00
+                  $ 129.360.00
                 </span>
                 <span
                   className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full ml-3 text-xs"
@@ -171,7 +171,7 @@ const Ecommerce = () => {
               </div>
             </div>
             <div>
-              <Stacked currentMode={currentMode} width="320px" height="360px" />
+              <Stacked currentMode={currentMode} width="360px" height="360px" />
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@ const Ecommerce = () => {
 
               <div>
                 <p className="text-2xl text-white font-semibold mt-8">
-                  $ 63,448.78
+                  $ 63,500.00
                 </p>
                 <p className="text-gray-200">Monthly revenue</p>
               </div>
@@ -206,10 +206,10 @@ const Ecommerce = () => {
 
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
-              <p className="text-2xl font-semibold">$ 43,246.00</p>
+              <p className="text-2xl font-semibold">$ 129,360.00</p>
               <p className="text-gray-600 dark:text-gray-200">
                 {" "}
-                Product Costs{" "}
+                Expense Details{" "}
               </p>
             </div>
 
@@ -403,13 +403,16 @@ const Ecommerce = () => {
             </button>
           </div>
           <div className="mt-10">
-            <img className="md:w-96 h-50 " src={product9} alt="" />
+            <img className="md:w-96 h-50 " src={news} alt="" />
             <div className="mt-8">
-              <p className="font-semibold text-lg">React 18 coming soon!</p>
-              <p className="text-gray-400 ">By Johnathan Doe</p>
+              <p className="font-semibold text-lg">
+                Bitcoin Price and Ethereum Reverse Sharply, Key Support Nearby
+              </p>
+              <p className="text-gray-400 ">By Xavick Lo</p>
               <p className="mt-8 text-sm text-gray-400">
-                This will be the small description for the news you have shown
-                here. There could be some great info.
+                Bitcoin price dropped sharply to the $18,500 support. Ethereum
+                dived to $1,265, XRP is down over 10%. QNT and RSR are up over
+                5%....
               </p>
               <div className="mt-3">
                 <Button

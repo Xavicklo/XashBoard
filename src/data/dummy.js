@@ -3030,11 +3030,14 @@ export const dropdownData = [
   },
 ];
 export const SparklineAreaData = [
-  { x: 1, yval: 2 },
-  { x: 2, yval: 6 },
-  { x: 3, yval: 8 },
-  { x: 4, yval: 5 },
-  { x: 5, yval: 10 },
+  { x: 1, yval: 18235.1 },
+  { x: 2, yval: 15522.3 },
+  { x: 3, yval: 19243.4 },
+  { x: 4, yval: 10422.7 },
+  { x: 5, yval: 26804.1 },
+  { x: 6, yval: 19349.4 },
+  { x: 7, yval: 24794.2 },
+  { x: 8, yval: 18307.3 },
 ];
 
 export const lineCustomSeries = [
@@ -3138,22 +3141,24 @@ export const ecomPieChartData = [
 
 export const stackedChartData = [
   [
-    { x: "Jan", y: 111.1 },
-    { x: "Feb", y: 127.3 },
-    { x: "Mar", y: 143.4 },
-    { x: "Apr", y: 159.9 },
-    { x: "May", y: 159.9 },
-    { x: "Jun", y: 159.9 },
-    { x: "July", y: 159.9 },
+    { x: "Jan", y: 51397.1 },
+    { x: "Feb", y: 48631.3 },
+    { x: "Mar", y: 45722.4 },
+    { x: "Apr", y: 51451.6 },
+    { x: "May", y: 48644.0 },
+    { x: "Jun", y: 43608.1 },
+    { x: "Jul", y: 50867.9 },
+    { x: "Aug", y: 50922.4 },
   ],
   [
-    { x: "Jan", y: 111.1 },
-    { x: "Feb", y: 127.3 },
-    { x: "Mar", y: 143.4 },
-    { x: "Apr", y: 159.9 },
-    { x: "May", y: 159.9 },
-    { x: "Jun", y: 159.9 },
-    { x: "July", y: 159.9 },
+    { x: "Jan", y: 18235.1 },
+    { x: "Feb", y: 15522.3 },
+    { x: "Mar", y: 19243.4 },
+    { x: "Apr", y: 10422.7 },
+    { x: "May", y: 26804.1 },
+    { x: "Jun", y: 29349.4 },
+    { x: "Jul", y: 24794.2 },
+    { x: "Aug", y: 18307.3 },
   ],
 ];
 
@@ -3190,11 +3195,11 @@ export const stackedPrimaryXAxis = {
 
 export const stackedPrimaryYAxis = {
   lineStyle: { width: 0 },
-  minimum: 100,
-  maximum: 400,
-  interval: 100,
-  majorTickLines: { width: 0 },
-  majorGridLines: { width: 1 },
+  minimum: 10000,
+  maximum: 100000,
+  interval: 10000,
+  majorTickLines: { width: 10 },
+  majorGridLines: { width: 0.5 },
   minorGridLines: { width: 1 },
   minorTickLines: { width: 0 },
   labelFormat: "{value}",
