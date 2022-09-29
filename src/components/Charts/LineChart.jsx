@@ -41,6 +41,13 @@ const LineChart = () => {
         background: currentMode === "dark" ? "#33373E" : "#fff",
         textStyle: { color: currentMode === "dark" ? "#edf2f7" : "#000" },
       }}
+      tooltipSettings={{
+        visible: true,
+        format: "${x} : ${yval}",
+        trackLineSettings: {
+          visible: true,
+        },
+      }}
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective>
