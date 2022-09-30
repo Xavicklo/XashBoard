@@ -78,21 +78,15 @@ export const kanbanGrid = [
 
   { headerText: "Done", keyField: "Close", allowToggle: true },
 ];
-const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2 bg-white">
-    <img
-      className="rounded-full w-10 h-10 "
-      src={props.EmployeeImage}
-      alt="employee"
-    />
-    <p>{props.Name}</p>
+const gridEmployeeName = (props) => (
+  <div className="flex items-center justify-center gap-2 bg-white">
+    <p>{props.username}</p>
   </div>
 );
 
-const gridEmployeeCountry = (props) => (
+const gridEmployeeEmail = (props) => (
   <div className="flex items-center justify-center gap-2 bg-white">
-    <GrLocation />
-    <span>{props.Country}</span>
+    <span>{props.email}</span>
   </div>
 );
 export const EditorData = () => (
@@ -470,44 +464,43 @@ export const customersGrid = [
 
 export const employeesGrid = [
   {
-    headerText: "Employee",
-    width: "150",
-    template: gridEmployeeProfile,
+    field: "address.zipcode",
+    headerText: "Employee ID",
+    width: "125",
+    textAlign: "Center",
+  },
+  {
+    headerText: "Employee Name",
+    headerTextAlign: "Center",
+    width: "130",
+    template: gridEmployeeName,
     backgroundColor: "#f5f5f5",
     textAlign: "Center",
   },
   { field: "Name", headerText: "", width: "0", textAlign: "Center" },
   {
-    field: "Title",
-    headerText: "Designation",
+    headerText: "Email Address",
+    width: "140",
+    textAlign: "Center",
+    template: gridEmployeeEmail,
+  },
+  {
+    field: "phone",
+    headerText: "Phone Number",
     width: "170",
     textAlign: "Center",
   },
   {
-    headerText: "Country",
-    width: "120",
-    textAlign: "Center",
-    template: gridEmployeeCountry,
-  },
-
-  {
-    field: "HireDate",
-    headerText: "Hire Date",
+    field: "address.street",
+    headerText: "Last Company",
     width: "135",
-    format: "yMd",
     textAlign: "Center",
   },
 
   {
-    field: "ReportsTo",
-    headerText: "Reports To",
+    field: "address.city",
+    headerText: "City",
     width: "120",
-    textAlign: "Center",
-  },
-  {
-    field: "EmployeeID",
-    headerText: "Employee ID",
-    width: "125",
     textAlign: "Center",
   },
 ];
