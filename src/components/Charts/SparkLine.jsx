@@ -8,27 +8,29 @@ import {
 class SparkLine extends React.PureComponent {
   render() {
     const { id, height, width, color, data, type, currentColor } = this.props;
+
     return (
       <SparklineComponent
         id={id}
         height={height}
         width={width}
-        lineWidth={5}
+        lineWidth={1}
         valueType="Numeric"
         fill={color}
         border={{ color: currentColor, width: 2 }}
-        dataSource={data}
-        xName="x"
-        yName="yval"
-        type={type}
-        markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
         tooltipSettings={{
           visible: true,
+          // eslint-disable-next-line no-template-curly-in-string
           format: "${x} : ${yval}",
           trackLineSettings: {
             visible: true,
           },
         }}
+        markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
+        dataSource={data}
+        xName="x"
+        yName="yval"
+        type={type}
       >
         <Inject services={[SparklineTooltip]} />
       </SparklineComponent>
