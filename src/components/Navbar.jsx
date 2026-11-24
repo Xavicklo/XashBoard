@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { BsChatLeft } from "react-icons/bs";
@@ -8,7 +8,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import me from "../data/me.jpeg";
 import { Cart, Chat, Notification, UserProfile } from ".";
-import { useStateContext } from "../contexts/ContextProvider";
+import { useStateContext, MOBILE_BREAKPOINT } from "../contexts/ContextProvider";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -45,16 +45,21 @@ const Navbar = () => {
 
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => window.removeEventListener("resize", handleResize); // clean up to avoid leaks
+  }, [setScreenSize]);
 
-  // useEffect(() => {
-  //   if (screenSize <= 900) {
-  //     setActiveMenu(false);
-  //   } else {
-  //     setActiveMenu(false);
-  //   }
-  // }, [screenSize]);
+  // Responsive sidebar: close it when the window shrinks below the breakpoint and open it
+  // when it grows above. Only react to *crossing* the breakpoint, so a sidebar the user
+  // opened or closed by hand isn't overridden on every resize event.
+  const wasMobile = useRef(screenSize <= MOBILE_BREAKPOINT);
+  useEffect(() => {
+    if (screenSize === undefined) return;
+    const isMobile = screenSize <= MOBILE_BREAKPOINT;
+    if (isMobile !== wasMobile.current) {
+      setActiveMenu(!isMobile);
+      wasMobile.current = isMobile;
+    }
+  }, [screenSize, setActiveMenu]);
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 

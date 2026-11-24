@@ -22,9 +22,8 @@ import {
   Editor,
   Line,
 } from "./pages";
-import { useStateContext } from "./contexts/ContextProvider";
+import { useStateContext, MOBILE_BREAKPOINT } from "./contexts/ContextProvider";
 import "./App.css";
-import { fromJSON } from "postcss";
 
 const App = () => {
   const {
@@ -33,7 +32,11 @@ const App = () => {
     setThemeSettings,
     currentColor,
     currentMode,
+    setActiveMenu,
+    screenSize,
   } = useStateContext();
+
+  const isMobile = screenSize <= MOBILE_BREAKPOINT;
 
   return (
     <div className={currentMode === "dark" ? "dark" : ""}>
@@ -51,8 +54,17 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+          {/* On phones/tablets the open sidebar overlays the page: tap the dark backdrop to close it */}
+          {activeMenu && isMobile && (
+            <div
+              className="fixed inset-0 bg-half-transparent"
+              style={{ zIndex: 999 }}
+              onClick={() => setActiveMenu(false)}
+              aria-hidden="true"
+            />
+          )}
           {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white" style={{ zIndex: 1000 }}>
               <Sidebar />
             </div>
           ) : (
@@ -69,7 +81,8 @@ const App = () => {
               <Navbar />
             </div>
 
-            <div>
+            {/* The navbar is fixed on small screens, so push the content below it */}
+            <div className="pt-16 md:pt-0">
               {themeSettings && <ThemeSettings />}
 
               <Routes>

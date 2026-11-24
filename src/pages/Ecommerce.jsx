@@ -171,7 +171,10 @@ const Ecommerce = () => {
               </div>
             </div>
             <div>
-              <Stacked currentMode={currentMode} width="360px" height="360px" />
+              {/* Fluid width so the chart never overflows a phone screen */}
+              <div className="w-full" style={{ maxWidth: 360 }}>
+                <Stacked currentMode={currentMode} width="100%" height="360px" />
+              </div>
             </div>
           </div>
         </div>
@@ -198,7 +201,7 @@ const Ecommerce = () => {
                 height="100px"
                 type="Column"
                 data={SparklineAreaData}
-                width="320"
+                width="100%"
                 color="rgb(242, 252, 253)"
               />
             </div>
@@ -320,7 +323,7 @@ const Ecommerce = () => {
                 height="160px"
                 type="Area"
                 data={SparklineAreaData}
-                width="320"
+                width="100%"
                 color="rgb(242, 252, 253)"
               />
             </div>
