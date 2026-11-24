@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
 import {
   Ecommerce,
   Orders,
@@ -37,6 +37,13 @@ const App = () => {
   } = useStateContext();
 
   const isMobile = screenSize <= MOBILE_BREAKPOINT;
+
+  // Syncfusion charts only re-measure on window resize, so after the sidebar opens or
+  // closes (which changes the content width without resizing the window) nudge them.
+  useEffect(() => {
+    const t = setTimeout(() => window.dispatchEvent(new Event("resize")), 50);
+    return () => clearTimeout(t);
+  }, [activeMenu]);
 
   return (
     <div className={currentMode === "dark" ? "dark" : ""}>

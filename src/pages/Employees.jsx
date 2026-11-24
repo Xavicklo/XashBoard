@@ -8,7 +8,7 @@ import {
   Page,
 } from "@syncfusion/ej2-react-grids";
 
-import { employeesData, employeesGrid } from "../data/dummy";
+import { employeesGrid } from "../data/dummy";
 import { Header } from "../components";
 import { useEffect, useState } from "react";
 import axios from "axios";
