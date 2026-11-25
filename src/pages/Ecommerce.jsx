@@ -54,7 +54,7 @@ const MoreButton = () => (
  *   phone   – one column, the four stat boxes stay 2 × 2
  *   lg      – Earnings | 2 × 2 stats, side by side and the same height
  *   xl      – Revenue takes 2/3, the two summary cards stack in the last 1/3
- *   2xl     – Earnings 1/3 | the four stats in one row
+ *   xl      – (also) Earnings 1/3 | the four stats in one row
  */
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
@@ -62,7 +62,7 @@ const Ecommerce = () => {
   return (
     <div className="p-4 md:p-6 md:pt-4 space-y-4 md:space-y-6">
       {/* ── Row 1: Earnings + key stats ───────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
         <div className="bg-white rounded-2xl p-6 md:p-8 flex flex-col justify-between gap-6 min-h-[11rem] h-full">
           <div className="flex justify-between items-start gap-4">
             <div>
@@ -90,7 +90,7 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 2xl:col-span-2 2xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 xl:col-span-2 xl:grid-cols-4 gap-4 md:gap-6">
           {earningData.map((item) => (
             <div
               key={item.title}

@@ -7,8 +7,26 @@
     <meta name="theme-color" content="#000000" />
     <title>XashBoard</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="margin:0;background:#20232A">
+    <div id="root">
+      <!-- Shown until React replaces it, so a slow phone sees this instead of a blank page -->
+      <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:sans-serif;color:#edf2f7">
+        <div style="font-size:22px;font-weight:600">XashBoard</div>
+        <div id="boot-status" style="margin-top:8px;color:#9ca3af;font-size:14px">Loading…</div>
+      </div>
+    </div>
+    <script>
+      // If the app bundle itself fails (download or an unsupported browser), say so on screen
+      window.addEventListener("error", function (e) {
+        var el = document.getElementById("boot-status");
+        if (el) {
+          el.style.color = "#fca5a5";
+          el.style.whiteSpace = "pre-wrap";
+          el.style.padding = "0 16px";
+          el.textContent = "Error: " + (e.message || (e.target && e.target.src) || "failed to load");
+        }
+      }, true);
+    </script>
 
   </body>
 </html>
