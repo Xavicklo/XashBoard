@@ -10,7 +10,11 @@ class SparkLine extends React.PureComponent {
     const { id, height, width, color, data, type, currentColor } = this.props;
 
     return (
+      // Syncfusion 19.x's Sparkline crashes ("Nothing was returned from render") when its
+      // colour props update in place, which blanked the whole app on a theme-colour change.
+      // Keying on the colours makes React rebuild it instead of updating it.
       <SparklineComponent
+        key={`${id}-${currentColor}-${color}`}
         id={id}
         height={height}
         width={width}

@@ -27,7 +27,7 @@ const LineChart = () => {
       primaryXAxis={LinePrimaryXAxis}
       primaryYAxis={LinePrimaryYAxis}
       chartArea={{ border: { width: 0 } }}
-      tootip={{ enable: true }}
+      tooltip={{ enable: true }}
       palettes={[
         "#BB1212",
         "#C3C3C3",
@@ -43,6 +43,7 @@ const LineChart = () => {
       }}
       tooltipSettings={{
         visible: true,
+        // eslint-disable-next-line no-template-curly-in-string
         format: "${x} : ${yval}",
         trackLineSettings: {
           visible: true,

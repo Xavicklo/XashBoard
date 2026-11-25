@@ -1,30 +1,34 @@
-import React, { useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
-import {
-  Ecommerce,
-  Orders,
-  Calendar,
-  Employees,
-  Stacked,
-  Pyramid,
-  Customers,
-  Kanban,
-  Area,
-  Bar,
-  Pie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  Editor,
-  Line,
-} from "./pages";
-import { useStateContext } from "./contexts/ContextProvider";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
+import Ecommerce from "./pages/Ecommerce";
+import { useStateContext, MOBILE_BREAKPOINT } from "./contexts/ContextProvider";
 import "./App.css";
-import { fromJSON } from "postcss";
+
+// Only the dashboard ships in the first download; every other page is fetched the first
+// time it is opened. Syncfusion makes the full bundle ~4 MB, far too slow for a phone.
+const Orders = lazy(() => import("./pages/Orders"));
+const Employees = lazy(() => import("./pages/Employees"));
+const Customers = lazy(() => import("./pages/Customers"));
+const Kanban = lazy(() => import("./pages/Kanban"));
+const Editor = lazy(() => import("./pages/Editor"));
+const Calendar = lazy(() => import("./pages/Calendar"));
+const ColorPicker = lazy(() => import("./pages/ColorPicker"));
+const Line = lazy(() => import("./pages/Charts/Line"));
+const Area = lazy(() => import("./pages/Charts/Area"));
+const Bar = lazy(() => import("./pages/Charts/Bar"));
+const Pie = lazy(() => import("./pages/Charts/Pie"));
+const Financial = lazy(() => import("./pages/Charts/Financial"));
+const ColorMapping = lazy(() => import("./pages/Charts/ColorMapping"));
+const Pyramid = lazy(() => import("./pages/Charts/Pyramid"));
+const Stacked = lazy(() => import("./pages/Charts/Stacked"));
+
+const PageLoading = () => (
+  <div className="p-10 text-center text-gray-400">Loading…</div>
+);
 
 const App = () => {
   const {
@@ -33,7 +37,18 @@ const App = () => {
     setThemeSettings,
     currentColor,
     currentMode,
+    setActiveMenu,
+    screenSize,
   } = useStateContext();
+
+  const isMobile = screenSize <= MOBILE_BREAKPOINT;
+
+  // Syncfusion charts only re-measure on window resize, so after the sidebar opens or
+  // closes (which changes the content width without resizing the window) nudge them.
+  useEffect(() => {
+    const t = setTimeout(() => window.dispatchEvent(new Event("resize")), 50);
+    return () => clearTimeout(t);
+  }, [activeMenu]);
 
   return (
     <div className={currentMode === "dark" ? "dark" : ""}>
@@ -51,8 +66,17 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+          {/* On phones/tablets the open sidebar overlays the page: tap the dark backdrop to close it */}
+          {activeMenu && isMobile && (
+            <div
+              className="fixed inset-0 bg-half-transparent"
+              style={{ zIndex: 999 }}
+              onClick={() => setActiveMenu(false)}
+              aria-hidden="true"
+            />
+          )}
           {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white" style={{ zIndex: 1000 }}>
               <Sidebar />
             </div>
           ) : (
@@ -69,9 +93,11 @@ const App = () => {
               <Navbar />
             </div>
 
-            <div>
+            {/* The navbar is fixed on small screens, so push the content below it */}
+            <div className="pt-16 md:pt-0">
               {themeSettings && <ThemeSettings />}
 
+              <Suspense fallback={<PageLoading />}>
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />
@@ -98,6 +124,7 @@ const App = () => {
                 <Route path="/pyramid" element={<Pyramid />} />
                 <Route path="/stacked" element={<Stacked />} />
               </Routes>
+              </Suspense>
             </div>
           </div>
         </div>

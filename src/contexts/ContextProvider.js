@@ -9,12 +9,26 @@ const initialState = {
   notification: false,
 };
 
+// Below this width the sidebar overlays the page and starts closed.
+export const MOBILE_BREAKPOINT = 900;
+
+// localStorage can throw (e.g. private mode), so read it defensively.
+const readSetting = (key, fallback) => {
+  try {
+    return localStorage.getItem(key) || fallback;
+  } catch (e) {
+    return fallback;
+  }
+};
+
 export const ContextProvider = ({ children }) => {
-  const [activeMenu, setActiveMenu] = useState(false);
+  // Sidebar starts open on desktop and closed on phones/tablets
+  const [activeMenu, setActiveMenu] = useState(() => window.innerWidth > MOBILE_BREAKPOINT);
   const [isClicked, setIsClicked] = useState(initialState);
-  const [screenSize, setScreenSize] = useState(undefined);
-  const [currentColor, setCurrentColor] = useState("#0497cc");
-  const [currentMode, setCurrentMode] = useState("dark");
+  const [screenSize, setScreenSize] = useState(() => window.innerWidth);
+  // Theme choices are saved by setMode/setColor below; read them back on load
+  const [currentColor, setCurrentColor] = useState(() => readSetting("colorMode", "#0497cc"));
+  const [currentMode, setCurrentMode] = useState(() => readSetting("themeMode", "dark"));
   const [themeSettings, setThemeSettings] = useState(false);
 
   const setMode = (e) => {

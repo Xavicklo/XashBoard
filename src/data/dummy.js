@@ -30,7 +30,6 @@ import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { GiLouvrePyramid } from "react-icons/gi";
-import { GrLocation } from "react-icons/gr";
 import avatar from "./avatar.jpg";
 import avatar2 from "./avatar2.jpg";
 import avatar3 from "./avatar3.png";
@@ -42,7 +41,6 @@ import product4 from "./product4.jpg";
 import product5 from "./product5.jpg";
 import product6 from "./product6.jpg";
 import product7 from "./product7.jpg";
-import product8 from "./product8.jpg";
 
 export const gridOrderImage = (props) => (
   <div classname="bg-white dark:bg-secondary-dark-bg">
@@ -372,8 +370,8 @@ export const ColorMappingPrimaryYAxis = {
 
 export const FinancialPrimaryXAxis = {
   valueType: "DateTime",
-  minimum: new Date("2016, 12, 31"),
-  maximum: new Date("2017, 9, 30"),
+  minimum: new Date(2016, 11, 31),
+  maximum: new Date(2017, 8, 30),
   crosshairTooltip: { enable: true },
   majorGridLines: { width: 0 },
 };
@@ -387,10 +385,12 @@ export const FinancialPrimaryYAxis = {
   majorTickLines: { width: 0 },
 };
 
+// Dates use numeric arguments (month is 0-based): strings like "2022, 7, 1" are not a
+// standard format, and Safari/iOS turns them into Invalid Date, which crashed the charts.
 export const LinePrimaryXAxis = {
   valueType: "DateTime",
-  minimum: new Date("2022, 7, 1"),
-  maximum: new Date("2022, 9, 28"),
+  minimum: new Date(2022, 6, 1),
+  maximum: new Date(2022, 8, 28),
   labelFormat: "MM/dd",
   intervalType: "Days",
   edgeLabelPlacement: "None",

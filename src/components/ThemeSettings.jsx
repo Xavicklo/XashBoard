@@ -1,7 +1,6 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 import { BsCheck } from "react-icons/bs";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { themeColors } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -12,7 +11,7 @@ const ThemeSettings = () => {
 
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-secondary-dark-bg w-400">
+      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-secondary-dark-bg w-full sm:w-400">
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="font-semibold text-xl">Settings</p>
           <button
@@ -62,29 +61,24 @@ const ThemeSettings = () => {
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <p className="font-semibold text-lg">ThemeColors</p>
           <div className="flex flex-wrap gap-3 ml-3 mt-3">
-            {themeColors.map((item, index) => (
-              <TooltipComponent
-                key={index}
-                content={item.name}
-                position="TopCenter"
+            {/* Native title tooltips: a Syncfusion TooltipComponent that is still open
+                when this panel closes after a pick crashes the whole app (blank screen) */}
+            {themeColors.map((item) => (
+              <button
+                key={item.name}
+                type="button"
+                title={item.name}
+                aria-label={item.name}
+                className="h-10 w-10 mt-2 rounded-full cursor-pointer flex items-center justify-center hover:drop-shadow-xl"
+                style={{ backgroundColor: item.color }}
+                onClick={() => setColor(item.color)}
               >
-                <div className="relative mt-2 cursor-pointer flex gap-5 items-center">
-                  <button
-                    type="button"
-                    className="h-10 w-10 rounded-full cursor-pointer"
-                    style={{ backgroundColor: item.color }}
-                    onClick={() => {
-                      setColor(item.color);
-                    }}
-                  >
-                    <BsCheck
-                      className={`ml-2 text-2xl text-white ${
-                        item.color === currentColor ? "block" : "hidden"
-                      }`}
-                    />
-                  </button>
-                </div>
-              </TooltipComponent>
+                <BsCheck
+                  className={`text-2xl text-white ${
+                    item.color === currentColor ? "block" : "hidden"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

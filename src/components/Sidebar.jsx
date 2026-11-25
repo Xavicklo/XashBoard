@@ -5,15 +5,15 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { links } from "../data/dummy";
-import { useStateContext } from "../contexts/ContextProvider";
-import { NAVIGATION } from "@syncfusion/ej2/filemanager";
+import { useStateContext, MOBILE_BREAKPOINT } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize, currentColor } =
     useStateContext();
 
   const handleCloseSideBar = () => {
-    if (activeMenu !== undefined && screenSize <= 900) {
+    // On small screens the sidebar covers the page, so close it after navigating
+    if (activeMenu !== undefined && screenSize <= MOBILE_BREAKPOINT) {
       setActiveMenu(false);
     }
   };
@@ -40,7 +40,7 @@ const Sidebar = () => {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => setActiveMenu((prevActiveMenu) => !activeMenu)}
+                onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
                 <MdOutlineCancel />
