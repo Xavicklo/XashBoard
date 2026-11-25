@@ -370,8 +370,8 @@ export const ColorMappingPrimaryYAxis = {
 
 export const FinancialPrimaryXAxis = {
   valueType: "DateTime",
-  minimum: new Date("2016, 12, 31"),
-  maximum: new Date("2017, 9, 30"),
+  minimum: new Date(2016, 11, 31),
+  maximum: new Date(2017, 8, 30),
   crosshairTooltip: { enable: true },
   majorGridLines: { width: 0 },
 };
@@ -385,10 +385,12 @@ export const FinancialPrimaryYAxis = {
   majorTickLines: { width: 0 },
 };
 
+// Dates use numeric arguments (month is 0-based): strings like "2022, 7, 1" are not a
+// standard format, and Safari/iOS turns them into Invalid Date, which crashed the charts.
 export const LinePrimaryXAxis = {
   valueType: "DateTime",
-  minimum: new Date("2022, 7, 1"),
-  maximum: new Date("2022, 9, 28"),
+  minimum: new Date(2022, 6, 1),
+  maximum: new Date(2022, 8, 28),
   labelFormat: "MM/dd",
   intervalType: "Days",
   edgeLabelPlacement: "None",
